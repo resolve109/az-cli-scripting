@@ -24,7 +24,9 @@ update_registry() {
     echo "Updating $registry..."
     
     # Update the tags for a specific image
-    az acr repository update --name "$registry" --image <image-name>:<new-tag>  # Replace <image-name> with the name of the image and <new-tag> with the new tag
+    az acr repository update --name "$registry" --image <image-name>:<new-tag>  
+    # Replace <image-name> with the name of the image and <new-tag> with the new tag
+    # Available tags: v1, v2, latest, stable, alpha, beta, release, development, testing, production
 }
 
 # Function to check and update a single registry
