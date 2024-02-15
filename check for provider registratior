@@ -1,0 +1,19 @@
+# Array of provider namespaces
+$providers = "Microsoft.SignalRService", "Microsoft.AppConfiguration", "Microsoft.DataFactory"
+
+# Loop through each provider and check registration status
+foreach ($provider in $providers) {
+  Write-Host "Checking registration state for $provider..."
+  az provider show -n $provider --query "registrationState" -o table
+}
+
+
+
+# Array of provider namespaces
+$providers = "Microsoft.SignalRService", "Microsoft.AppConfiguration", "Microsoft.DataFactory"
+
+# Loop through each provider and initiate registration
+foreach ($provider in $providers) {
+  Write-Host "Registering $provider..."
+  az provider register --namespace $provider
+}
